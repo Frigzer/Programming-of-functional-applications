@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.control.cell.*?>
+<?import javafx.scene.image.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.paint.*?>
+<?import javafx.scene.text.*?>
+
+<AnchorPane prefHeight="618.0" prefWidth="952.0" stylesheets="@style.css" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.example.lab_07.CarShowroomController">
+   <children>
+      <TableView fx:id="vehicleTableView" layoutX="357.0" layoutY="68.0" prefHeight="457.0" prefWidth="595.0" AnchorPane.bottomAnchor="93.0" AnchorPane.leftAnchor="357.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="68.0">
+        <columns>
+          <TableColumn fx:id="brandCol" prefWidth="90.0" text="Brand">
+              <cellValueFactory>
+                  <PropertyValueFactory property="brand" />
+              </cellValueFactory>
+          </TableColumn>
+            <TableColumn fx:id="modelCol" prefWidth="90.0" text="Model">
+                <cellValueFactory>
+                    <PropertyValueFactory property="model" />
+                </cellValueFactory>
+            </TableColumn>
+            <TableColumn fx:id="conditionCol" prefWidth="90.0" text="Condition">
+                <cellValueFactory>
+                    <PropertyValueFactory property="condition" />
+                </cellValueFactory>
+            </TableColumn>
+            <TableColumn fx:id="priceCol" prefWidth="90.0" text="Price">
+                <cellValueFactory>
+                    <PropertyValueFactory property="price" />
+                </cellValueFactory>
+            </TableColumn>
+            <TableColumn fx:id="yearCol" prefWidth="90.0" text="Year of Production">
+                <cellValueFactory>
+                    <PropertyValueFactory property="yearOfProduction" />
+                </cellValueFactory>
+            </TableColumn>
+            <TableColumn fx:id="quantityCol" prefWidth="90.0" text="Quantity">
+                <cellValueFactory>
+                    <PropertyValueFactory property="quantity" />
+                </cellValueFactory>
+            </TableColumn>
+        </columns>
+      </TableView>
+       <Label layoutX="673.0" layoutY="549.0" text="Select showroom:" />
+       <ComboBox fx:id="showroomComboBox" layoutX="788.0" layoutY="537.0" prefWidth="150.0" />
+      <Label layoutX="357.0" layoutY="550.0" text="Select car condition:" />
+      <ComboBox fx:id="conditionComboBox" layoutX="495.0" layoutY="538.0" prefWidth="150.0" />
+       <Label layoutX="60.0" layoutY="199.0" text="Miniumum price:" />
+       <TextField fx:id="minPriceField" layoutX="182.0" layoutY="194.0" prefWidth="100" />
+       <Label layoutX="66.0" layoutY="242.0" text="Maximum price:" />
+       <TextField fx:id="maxPriceField" layoutX="182.0" layoutY="237.0" prefWidth="100" />
+      <Label layoutX="79.0" layoutY="287.0" text="Vehicle name:" />
+      <TextField fx:id="vehicleNameField" layoutX="182.0" layoutY="282.0" prefWidth="100" />
+      <Separator layoutY="325.0" prefHeight="0.0" prefWidth="358.0" />
+       <ImageView fx:id="carImageView" fitHeight="153.0" fitWidth="238.0" layoutX="63.0" layoutY="351.0" />
+       <Label fx:id="carNameLabel" alignment="CENTER" layoutX="63.0" layoutY="510.0" prefHeight="25.0" prefWidth="238.0" style="-fx-font-size: 16px; -fx-text-fill: #333;" />
+       <Button fx:id="buyButton" layoutX="132.0" layoutY="549.0" mnemonicParsing="false" text="BUY NOW" />
+       <Button fx:id="viewCartButton" layoutX="815.0" layoutY="20.0" onAction="#handleViewCartButtonClicked" text="View Cart" />
+      <ImageView fx:id="carGif" fitHeight="163.0" fitWidth="281.0" layoutX="42.0" layoutY="25.0" pickOnBounds="true" preserveRatio="true" styleClass="drifting-gif">
+         <image>
+            <Image url="@carImages/drift.gif" />
+         </image></ImageView>
+      <Label layoutX="357.0" layoutY="5.0" prefHeight="43.0" prefWidth="288.0" styleClass="no-css" text="VroomVista!">
+         <font>
+            <Font name="Comic Sans MS" size="48.0" />
+         </font>
+         <textFill>
+            <LinearGradient endX="1.0" endY="1.0">
+               <stops>
+                  <Stop>
+                     <color>
+                        <Color red="0.28478312492370605" green="0.7236841917037964" blue="0.37987837195396423" />
+                     </color>
+                  </Stop>
+                  <Stop offset="1.0">
+                     <color>
+                        <Color red="0.5185185074806213" green="1.0" blue="0.6228395104408264" />
+                     </color>
+                  </Stop>
+               </stops>
+            </LinearGradient>
+         </textFill></Label>
+      <ImageView fx:id="ezImage" fitHeight="58.0" fitWidth="86.0" layoutX="655.0" layoutY="15.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@title.jpg" />
+         </image></ImageView>
+
+   </children>
+</AnchorPane>
