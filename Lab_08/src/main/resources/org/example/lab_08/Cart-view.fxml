@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.control.cell.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane prefHeight="400.0" prefWidth="814.0" stylesheets="@style.css" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.example.lab_08.CartController">
+    <children>
+        <TableView fx:id="cartTableView" layoutX="25" layoutY="2.0" prefHeight="305.0" prefWidth="801.0" AnchorPane.bottomAnchor="93.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+            <columns>
+                <TableColumn fx:id="cartBrandCol" prefWidth="100" resizable="false" text="Brand">
+                    <cellValueFactory>
+                        <PropertyValueFactory property="brand" />
+                    </cellValueFactory>
+                </TableColumn>
+                <TableColumn fx:id="cartModelCol" prefWidth="100" resizable="false" text="Model">
+                    <cellValueFactory>
+                        <PropertyValueFactory property="model" />
+                    </cellValueFactory>
+                </TableColumn>
+                <TableColumn fx:id="cartPriceCol" prefWidth="100" resizable="false" text="Price">
+                    <cellValueFactory>
+                        <PropertyValueFactory property="price" />
+                    </cellValueFactory>
+                </TableColumn>
+                <TableColumn fx:id="cartConditionCol" prefWidth="100" resizable="false" text="Condition">
+                    <cellValueFactory>
+                        <PropertyValueFactory property="condition" />
+                    </cellValueFactory>
+                </TableColumn>
+                <TableColumn fx:id="cartYearCol" prefWidth="100" resizable="false" text="Year of Production">
+                    <cellValueFactory>
+                        <PropertyValueFactory property="yearOfProduction" />
+                    </cellValueFactory>
+                </TableColumn>
+                <TableColumn fx:id="cartMileageCol" prefWidth="100" resizable="false" text="Mileage">
+                    <cellValueFactory>
+                        <PropertyValueFactory property="mileage" />
+                    </cellValueFactory>
+                </TableColumn>
+                <TableColumn fx:id="cartEngineCol" prefWidth="100" resizable="false" text="Engine capacity">
+                    <cellValueFactory>
+                        <PropertyValueFactory property="engineCapacity" />
+                    </cellValueFactory>
+                </TableColumn>
+
+            </columns>
+            <TableColumn fx:id="removeButton" text="Remove">
+            </TableColumn>
+        </TableView>
+      <StackPane layoutX="-1.0" layoutY="307.0" prefHeight="69.0" prefWidth="814.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0">
+         <children>
+              <Button fx:id="checkoutButton" onAction="#checkoutButtonAction" text="Checkout" />
+         </children>
+      </StackPane>
+    </children>
+</AnchorPane>

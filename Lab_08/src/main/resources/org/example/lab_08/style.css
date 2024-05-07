@@ -1,0 +1,110 @@
+.table-view {
+    -fx-background-color: #f4f4f4;
+    -fx-table-cell-border-color: transparent;
+    -fx-padding: 5px;
+}
+
+.table-row-cell:filled:selected {
+    -fx-background-color: #ff5c5c; /* Czerwony kolor zaznaczenia */
+    -fx-text-fill: white;
+}
+
+.table-row-cell:selected {
+    -fx-text-fill: white;
+}
+
+.button {
+    -fx-background-color: #ff3333; /* Czerwony kolor przycisku */
+    -fx-text-fill: white;
+    -fx-font-weight: bold;
+    -fx-border-color: #cc0000; /* Ciemniejszy czerwony kolor obramowania */
+    -fx-border-radius: 5px;
+    -fx-padding: 10px 20px;
+}
+
+
+
+
+.button:hover {
+    -fx-background-color: #cc0000; /* Ciemniejszy czerwony kolor przycisku po najechaniu myszką */
+}
+
+.combo-box {
+    -fx-background-color: white;
+    -fx-border-color: #cc0000; /* Czerwony kolor obramowania dla comboboxa */
+    -fx-border-radius: 5px;
+}
+
+.combo-box-base {
+    -fx-padding: 4px 8px;
+}
+
+.combo-box .list-cell {
+    -fx-padding: 8px;
+}
+
+.text-field {
+    -fx-background-color: white;
+    -fx-border-color: #cc0000; /* Czerwony kolor obramowania dla pola tekstowego */
+    -fx-border-radius: 5px;
+    -fx-padding: 5px 8px;
+}
+
+.text-field:focused {
+    -fx-border-color: #ff6666; /* Jasnoczerwony kolor obramowania dla pola tekstowego po wybraniu */
+}
+
+.separator {
+    -fx-border-color: #e2e2e2;
+    -fx-border-width: 0.5px;
+}
+
+.label {
+    -fx-text-fill: #495057;
+    -fx-font-size: 14px;
+}
+
+.alert {
+    -fx-font-size: 14px;
+}
+
+.my-dialog {
+    -fx-background-color: #ececec;
+    -fx-font-size: 14px;
+}
+
+.button-bar-button {
+    -fx-background-color: #ff6666; /* Jasnoczerwony kolor przycisku w pasku przycisków */
+    -fx-text-fill: white;
+    -fx-font-weight: bold;
+}
+
+.button-remove {
+    -fx-padding: 5px 10px;
+    -fx-font-size: 14px;
+    -fx-background-color: red;
+    -fx-text-fill: white;
+    -fx-border-color: black;
+    -fx-border-width: 2px;
+    -fx-border-radius: 5px;
+    -fx-background-radius: 5px;
+}
+
+.no-css {
+    -fx-font-family: 'Comic Sans MS';
+    -fx-font-size: 48px;
+    -fx-background-color: transparent;
+    -fx-text-fill: linear-gradient(to right, red, yellow 50%, green);
+}
+
+.drifting-gif {
+    -fx-border-color: red;
+    -fx-border-width: 5px;
+    -fx-border-radius: 10px;
+    -fx-effect: dropshadow(three-pass-box, black, 10, 0, 0, 0);
+}
+
+.combo-box-popup .list-cell:selected, .list-cell:hover {
+    -fx-text-fill: black;
+    -fx-background-color: #ffcccc; /* Czerwony kolor tła dla listy rozwijanej */
+}

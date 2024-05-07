@@ -1,0 +1,123 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.control.cell.*?>
+<?import javafx.scene.image.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.paint.*?>
+<?import javafx.scene.text.*?>
+
+<AnchorPane prefHeight="617.0" prefWidth="1261.0" stylesheets="@style.css" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.example.lab_08.CarShowroomController">
+   <children>
+      <TableView fx:id="vehicleTableView" layoutX="358.0" layoutY="80.0" prefHeight="413.0" prefWidth="897.0" AnchorPane.bottomAnchor="124.0" AnchorPane.leftAnchor="358.0" AnchorPane.rightAnchor="-1.0" AnchorPane.topAnchor="80.0">
+        <columns>
+            <TableColumn fx:id="idCol" prefWidth="110.0" resizable="false" text="Id">
+                <!--
+                <cellValueFactory>
+                    <PropertyValueFactory property="id" />
+                </cellValueFactory>
+                -->
+            </TableColumn>
+          <TableColumn fx:id="brandCol" prefWidth="110.0" resizable="false" text="Brand">
+              <!--
+              <cellValueFactory>
+                  <PropertyValueFactory property="brand" />
+              </cellValueFactory>
+              -->
+          </TableColumn>
+            <TableColumn fx:id="modelCol" prefWidth="110.0" resizable="false" text="Model">
+                <!--
+                <cellValueFactory>
+                    <PropertyValueFactory property="model" />
+                </cellValueFactory>
+                -->
+            </TableColumn>
+            <TableColumn fx:id="conditionCol" prefWidth="110.0" resizable="false" text="Condition">
+                <cellValueFactory>
+                    <PropertyValueFactory property="condition" />
+                </cellValueFactory>
+            </TableColumn>
+            <TableColumn fx:id="priceCol" prefWidth="110.0" resizable="false" text="Price">
+                <cellValueFactory>
+                    <PropertyValueFactory property="price" />
+                </cellValueFactory>
+            </TableColumn>
+            <TableColumn fx:id="yearCol" prefWidth="110.0" resizable="false" text="Year of Production">
+                <cellValueFactory>
+                    <PropertyValueFactory property="yearOfProduction" />
+                </cellValueFactory>
+            </TableColumn>
+            <TableColumn fx:id="quantityCol" prefWidth="110.0" resizable="false" text="Quantity">
+                <cellValueFactory>
+                    <PropertyValueFactory property="quantity" />
+                </cellValueFactory>
+            </TableColumn>
+            <TableColumn fx:id="ratingCountCol" prefWidth="110.0" resizable="false" text="Rating Count">
+                <cellValueFactory>
+                    <PropertyValueFactory property="ratingCount" />
+                </cellValueFactory>
+            </TableColumn>
+            <TableColumn fx:id="averageRatingCol" prefWidth="110.0" resizable="false" text="Average Rating">
+                <cellValueFactory>
+                    <PropertyValueFactory property="averageRating" />
+                </cellValueFactory>
+            </TableColumn>
+        </columns>
+      </TableView>
+       <Label layoutX="60.0" layoutY="199.0" text="Miniumum price:" />
+       <TextField fx:id="minPriceField" layoutX="182.0" layoutY="194.0" prefWidth="100" />
+       <Label layoutX="66.0" layoutY="242.0" text="Maximum price:" />
+       <TextField fx:id="maxPriceField" layoutX="182.0" layoutY="237.0" prefWidth="100" />
+      <Label layoutX="79.0" layoutY="287.0" text="Vehicle name:" />
+      <TextField fx:id="vehicleNameField" layoutX="182.0" layoutY="282.0" prefWidth="100" />
+      <Separator layoutY="325.0" prefHeight="0.0" prefWidth="357.0" />
+       <ImageView fx:id="carImageView" fitHeight="153.0" fitWidth="238.0" layoutX="63.0" layoutY="351.0" />
+       <Label fx:id="carNameLabel" alignment="CENTER" layoutX="63.0" layoutY="510.0" prefHeight="25.0" prefWidth="238.0" style="-fx-font-size: 16px; -fx-text-fill: #333;" />
+       <Button fx:id="buyButton" layoutX="60.0" layoutY="550.0" mnemonicParsing="false" styleClass="buySection" text="BUY NOW" />
+       <Button fx:id="rateButton" layoutX="195.0" layoutY="550.0" mnemonicParsing="false" styleClass="rateSection" text="RATE NOW" />
+       <Button fx:id="viewCartButton" layoutX="1086.0" layoutY="28.0" onAction="#handleViewCartButtonClicked" styleClass="buySection" text="View Cart" />
+      <ImageView fx:id="carGif" fitHeight="163.0" fitWidth="281.0" layoutX="42.0" layoutY="25.0" pickOnBounds="true" preserveRatio="true" styleClass="drifting-gif">
+         <image>
+            <Image url="@carImages/drift.gif" />
+         </image></ImageView>
+      <Label layoutX="605.0" layoutY="11.0" prefHeight="74.0" prefWidth="313.0" styleClass="no-css" text="VroomVista!">
+         <font>
+            <Font name="Comic Sans MS" size="48.0" />
+         </font>
+         <textFill>
+            <LinearGradient endX="1.0" endY="1.0">
+               <stops>
+                  <Stop>
+                     <color>
+                        <Color red="0.28478312492370605" green="0.7236841917037964" blue="0.37987837195396423" />
+                     </color>
+                  </Stop>
+                  <Stop offset="1.0">
+                     <color>
+                        <Color red="0.5185185074806213" green="1.0" blue="0.6228395104408264" />
+                     </color>
+                  </Stop>
+               </stops>
+            </LinearGradient>
+         </textFill></Label>
+      <ImageView fx:id="ezImage" fitHeight="74.0" fitWidth="105.0" layoutX="918.0" layoutY="11.0" pickOnBounds="true">
+         <image>
+            <Image url="@zygzak.png" />
+         </image></ImageView>
+      <Pane layoutX="358.0" layoutY="491.0" prefHeight="111.0" prefWidth="894.0">
+         <children>
+            <ComboBox fx:id="conditionComboBox" layoutX="139.0" layoutY="34.0" prefWidth="150.0" />
+            <Label layoutX="7.0" layoutY="45.0" text="Select car condition:" />
+             <ComboBox fx:id="showroomComboBox" layoutX="425.0" layoutY="34.0" prefWidth="150.0" />
+             <Label layoutX="308.0" layoutY="45.0" text="Select showroom:" />
+             <TableView fx:id="summaryTableView" layoutX="607.0" layoutY="7.0" prefHeight="97.0" prefWidth="273.0">
+                 <columns>
+                     <TableColumn fx:id="showroomColumn" editable="false" prefWidth="117.0" resizable="false" text="Showroom" />
+                     <TableColumn fx:id="countColumn" editable="false" prefWidth="130.0" resizable="false" text="Vehicle Count" />
+                 </columns>
+             </TableView>
+         </children>
+      </Pane>
+      <Separator layoutX="355.0" orientation="VERTICAL" prefHeight="617.0" prefWidth="0.0" />
+   </children>
+</AnchorPane>
