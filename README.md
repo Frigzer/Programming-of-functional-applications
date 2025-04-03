@@ -23,3 +23,15 @@ To explore or run any of the projects:
    ```bash
    git clone https://github.com/Frigzer/Programming-of-functional-applications.git
    ```
+   
+2. **Navigate to the Desired Lab Directory**:
+
+   ```bash
+   cd Programming-of-functional-applications/Lab_XX
+   ```
+
+3. **Build and Run**:
+
+   - Open the project in your preferred Java IDE (e.g., IntelliJ IDEA, Eclipse).
+   - Ensure the necessary libraries (Swing or JavaFX) are configured.
+   - Build and run the project as per the IDE's guidelines.
