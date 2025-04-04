@@ -97,3 +97,25 @@ This initial lab focuses on familiarizing with Java basics. The task involves cr
 ![Demo](assets/lab_01_demo.png)
 
 ---
+
+## Lab_02: Car Showroom System (Console Application)
+
+**Description**:  
+In this lab, the goal was to create the foundation for a car showroom management system using Java.  
+The application runs in the terminal and allows users to simulate adding, removing, searching, and managing vehicles within multiple car showrooms.
+
+The lab introduces the use of collections, comparators, enums, and more advanced OOP concepts like containers and data management logic.
+
+---
+
+### 💡 Features
+
+- Multiple car showrooms (`CarShowroomContainer`)
+- Adding and removing vehicles
+- Searching vehicles by exact or partial name
+- Counting vehicles by condition (`NEW`, `USED`)
+- Sorting by name or amount available
+- Finding the most available vehicle
+- Detecting and removing empty showrooms
+
+---
