@@ -119,3 +119,35 @@ The lab introduces the use of collections, comparators, enums, and more advanced
 - Detecting and removing empty showrooms
 
 ---
+
+### 📁 Project Structure
+
+```
+📦Lab_02/
+ ┣ 📂.idea/
+ ┃ ┣ 📜.gitignore
+ ┃ ┣ 📜misc.xml
+ ┃ ┣ 📜modules.xml
+ ┃ ┗ 📜workspace.xml
+ ┣ 📂out/
+ ┃ ┗ 📂production/
+ ┃   ┗ 📂Lab_02/
+ ┃     ┣ 🧮CarShowroom$AmountComparator.class
+ ┃     ┣ 🧮CarShowroom.class
+ ┃     ┣ 🧮CarShowroomContainer.class
+ ┃     ┣ 🧮ItemCondition.class
+ ┃     ┣ 🧮Main.class
+ ┃     ┗ 🧮Vehicle.class
+ ┣ 📂src/
+ ┃ ┣ 📜CarShowroom.java
+ ┃ ┣ 📜CarShowroomContainer.java
+ ┃ ┣ 📜ItemCondition.java
+ ┃ ┣ 📜Main.java
+ ┃ ┗ 📜Vehicle.java
+ ┣ 📜.gitignore
+ ┣ 📜Lab_02.iml
+ ```
+
+### 📸 Screenshot
+
+![Showroom demo](assets/lab_02_demo.png)
