@@ -89,3 +89,11 @@ This initial lab focuses on familiarizing with Java basics. The task involves cr
 
    
 ```
+
+---
+
+### 📸 Screenshot
+
+![Demo](assets/lab_01_demo.png)
+
+---
