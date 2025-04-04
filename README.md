@@ -35,3 +35,57 @@ To explore or run any of the projects:
    - Open the project in your preferred Java IDE (e.g., IntelliJ IDEA, Eclipse).
    - Ensure the necessary libraries (Swing or JavaFX) are configured.
    - Build and run the project as per the IDE's guidelines.
+
+## Lab_01: Introduction to Java
+
+**Description**:  
+This initial lab focuses on familiarizing with Java basics. The task involves creating a simple console application where the user selects a geometric shape by entering a number. Depending on the chosen shape, the program prompts for the necessary dimensions (e.g., side lengths) and then calculates and displays the area and perimeter.
+
+---
+
+### 💡 Features
+
+- Console-based user interface
+- Shape selection via numeric input
+- Area and perimeter calculation for:
+  - Square
+  - Rectangle
+  - Triangle
+  - Circle
+  - Prism (3D object)
+- Uses object-oriented principles (abstract class, interface)
+
+---
+
+### 📁 Project Structure
+
+```
+📦Lab_01/
+ ┣ 📂.idea/
+ ┃ ┣ 📜.gitignore
+ ┃ ┣ 📜misc.xml
+ ┃ ┣ 📜modules.xml
+ ┃ ┗ 📜workspace.xml
+ ┣ 📂out/
+ ┃ ┗ 📂production/
+ ┃   ┗ 📂Lab_01/
+ ┃     ┣ 🧮Circle.class
+ ┃     ┣ 🧮Figure.class
+ ┃     ┣ 🧮Main.class
+ ┃     ┣ 🧮Printable.class
+ ┃     ┣ 🧮Prism.class
+ ┃     ┣ 🧮Square.class
+ ┃     ┗ 🧮Triangle.class
+ ┣ 📂src/
+ ┃ ┣ 📜Circle.java
+ ┃ ┣ 📜Figure.java
+ ┃ ┣ 📜Main.java
+ ┃ ┣ 📜Printable.java
+ ┃ ┣ 📜Prism.java
+ ┃ ┣ 📜Square.java
+ ┃ ┗ 📜Triangle.java
+ ┣ 📜.gitignore
+ ┣ 📜Lab_01.iml
+
+   
+```
