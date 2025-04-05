@@ -151,3 +151,128 @@ The lab introduces the use of collections, comparators, enums, and more advanced
 ### 📸 Screenshot
 
 ![Showroom demo](assets/lab_02_demo.png)
+
+### 📦 Class Overview
+
+---
+
+#### 🏷️ `ItemCondition` (enum)
+
+Defines possible conditions for a vehicle.
+
+**Values**:
+- `NEW` – the vehicle is brand new
+- `USED` – the vehicle has been previously owned
+- `DAMAGED` – the vehicle is not in full working order
+
+> This enum is used by `Vehicle` and referenced in filtering and counting operations throughout the system.
+
+---
+
+#### 🚗 `Vehicle`
+
+Represents a single car model stored in a showroom.  
+This class implements the `Comparable` interface and can be sorted by brand name.
+
+**Fields**:
+- `brand` – brand of the vehicle (e.g., BMW, Toyota)
+- `model` – specific model (e.g., M8, Yaris)
+- `condition` – vehicle condition, defined by `ItemCondition` enum (`NEW`, `USED`)
+- `price` – price in local currency
+- `yearOfProduction` – production year
+- `mileage` – current mileage (in km)
+- `engineCapacity` – engine displacement (in cm³)
+- `quantity` – number of available units (default: 1)
+
+**Methods**:
+- `print()` – prints all vehicle details to the console
+- `compareTo(Vehicle o)` – compares vehicles by brand (alphabetical order)
+- `getCondition()` – returns the vehicle's condition
+- `getAmount()` – returns the current quantity available
+
+---
+
+#### 🏢 `CarShowroom`
+
+Represents a single car showroom that holds a collection of vehicles.  
+Provides methods for managing, searching, and sorting vehicles. Handles capacity limits and vehicle quantities.
+
+**Fields**:
+- `showroomName` – the name of the showroom (e.g., "Auto Com")
+- `cars` – list of vehicles stored in the showroom
+- `maxCapacity` – maximum number of unique vehicle entries allowed
+
+**Constructor**:
+- `CarShowroom(String showroomName, int maxCapacity)` – initializes the showroom with a name and capacity
+
+**Methods**:
+
+- `addProduct(Vehicle vehicle)`  
+  Adds a vehicle to the showroom. If the vehicle already exists, increments its quantity. Rejects addition if the showroom is full.
+
+- `getProduct(Vehicle vehicle)`  
+  Retrieves one unit of a vehicle (decrements quantity). Removes it if quantity reaches zero.
+
+- `removeProduct(Vehicle vehicle)`  
+  Removes the vehicle from the showroom regardless of quantity.
+
+- `search(String name)`  
+  Finds a vehicle by full brand and model name (exact match).
+
+- `searchPartial(String name)`  
+  Returns a list of vehicles whose brand or model contains the given substring.
+
+- `countByCondition(ItemCondition condition)`  
+  Counts how many vehicles in the showroom have a specific condition (`NEW` or `USED`).
+
+- `summary()`  
+  Prints a summary of all vehicles currently in the showroom.
+
+- `sortByName()`  
+  Sorts the vehicle list alphabetically by brand name.
+
+- `sortByAmount()`  
+  Sorts the vehicle list by descending quantity using a custom comparator.
+
+- `max()`  
+  Returns the vehicle with the highest quantity in the showroom.
+
+- `isEmpty()`  
+  Checks whether the showroom contains any vehicles.
+
+- `getFillPercentage()`  
+  Returns how full the showroom is, as a percentage of its maximum capacity.
+
+**Inner Class**:
+- `AmountComparator`  
+  Custom comparator that compares two vehicles by quantity (descending).
+
+---
+
+#### 🗃️ `CarShowroomContainer`
+
+Acts as a manager for multiple car showrooms.  
+Internally uses a `HashMap` to map showroom names to `CarShowroom` objects.
+
+**Fields**:
+- `carShowrooms` – a map of all car showrooms, keyed by name
+
+**Methods**:
+
+- `addCenter(String name, int maxCapacity)`  
+  Adds a new showroom with the given name and capacity.
+
+- `removeCenter(String name)`  
+  Removes a showroom by name.
+
+- `findEmpty()`  
+  Returns a list of all empty showrooms and prints their names to the console.
+
+- `summary()`  
+  Prints the name and fill percentage of every showroom in the system.
+
+- `getShowroom(String name)`  
+  Returns the showroom associated with the given name.
+
+---
+
