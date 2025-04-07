@@ -379,7 +379,7 @@ Calculates the median of two sorted arrays using **binary search partitioning** 
 
 Example output:
 
-```bash
+```yaml
 [1, 3, 6, 7] + [3, 4, 5] -> 4.0
 [1, 2, 6] + [3, 4, 5, 9] -> 4.0
 ```
@@ -433,4 +433,136 @@ Catches and displays exceptions for invalid input.
 📂matrix/
  ┣ 📜SpiralMatrix.java
  ┣ 📜MatrixTest.java
+```
+
+---
+
+### 📂 Package: `conversion`
+
+This module implements a **ZigZag text conversion** algorithm, inspired by the classic programming problem "Zigzag Conversion" (e.g., LeetCode 6).  
+The algorithm rearranges characters from a given string into a zigzag pattern across multiple rows and then reads them row by row.
+
+#### 🔀 `ZigzagConversion`
+
+Performs the core ZigZag conversion logic.
+
+**Key method**:
+- `String convert(String s, int numRows)`  
+  - Converts the input string into a ZigZag pattern using the given number of rows  
+  - Throws `InvalidNumOfRowsException` if the number of rows is invalid (≤ 1 or ≥ string length)
+
+**Example**:
+
+For input `"PAYPALISHIRING"` and `numRows = 3`, output will be:
+
+```yaml
+PAHNAPLSIIGYIR
+
+Pattern:
+P A H N
+A P L S I I G
+Y I R
+```
+
+#### 🧪 `ConversionTest`
+
+- Demonstrates ZigZag conversion on two test cases  
+- Catches and displays error messages for invalid row numbers  
+- Sample output:
+
+```yaml
+PAYPALISHIRING po konwersji dla 3 rzędów: PAHNAPLSIIGYIR
+PAYPALISHIRING po konwersji dla 4 rzędów: PINALSIGYAHRPI
+```
+
+---
+
+### 📁 Conversion Package Structure
+
+```
+📂conversion/
+ ┣ 📜ZigzagConversion.java
+ ┣ 📜ConversionTest.java
+```
+
+---
+
+### 📂 Package: `trio`
+
+This module solves the **3Sum problem** – finding all unique triplets in an array that sum up to zero.  
+The algorithm is optimized to skip duplicates and avoid redundant combinations.
+
+#### 🔍 `TrioFinder`
+
+Finds all unique triplets `(a, b, c)` in an array such that `a + b + c = 0`.
+
+**Key method**:
+- `List<List<Integer>> findTriplet(int[] nums)`  
+  - Sorts the input array  
+  - Uses a two-pointer approach to find pairs for each element  
+  - Skips duplicate values  
+  - Throws `EmptyArrayException` if the input is empty
+
+**Algorithm complexity**:  
+Time – O(n²) after sorting;  
+Space – O(n) for result storage
+
+---
+
+#### 🧪 `TrioTest`
+
+- Runs `TrioFinder` on different integer arrays  
+- Outputs all triplets found  
+- Handles empty array exception
+
+**Example output**:
+
+```yaml
+[0, 4, -5, 1, 0, -1, 9, -4] -> [[-5, 0, 5], [-4, 0, 4], [-1, 0, 1]] [-1, 1, -1, 1, 0, 0, 0] -> [[-1, 0, 1], [0, 0, 0]] [0, 0, 0] -> [[0, 0, 0]]
+```
+
+---
+
+### 📁 Trio Package Structure
+
+```
+📂trio/
+ ┣ 📜TrioFinder.java
+ ┣ 📜TrioTest.java
+```
+
+---
+
+### 📂 Package: `exceptions`
+
+This package contains **custom exception classes** used throughout other modules to improve code clarity and error handling.
+
+Each exception extends the base `Exception` class and takes a message as a parameter.
+
+#### ❌ `ArrayNotSortedException`  
+Thrown when a method expects a sorted array but receives an unsorted one.  
+Used in: `median.MedianCalculator`
+
+#### ❌ `EmptyArrayException`  
+Thrown when an algorithm receives an empty array and cannot proceed.  
+Used in: `sorting.SortingContext`, `trio.TrioFinder`
+
+#### ❌ `InvalidMatrixException`  
+Thrown when a matrix is `null`, empty, or has invalid dimensions.  
+Used in: `matrix.SpiralMatrix`
+
+#### ❌ `InvalidNumOfRowsException`  
+Thrown when the number of rows for ZigZag conversion is not within a valid range.  
+Used in: `conversion.ZigzagConversion`
+
+---
+
+### 📁 Exceptions Package Structure
+
+```
+📂exceptions/
+ ┣ 📜ArrayNotSortedException.java
+ ┣ 📜EmptyArrayException.java
+ ┣ 📜InvalidMatrixException.java
+ ┣ 📜InvalidNumOfRowsException.java
 ```
