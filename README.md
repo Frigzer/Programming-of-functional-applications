@@ -276,3 +276,161 @@ Internally uses a `HashMap` to map showroom names to `CarShowroom` objects.
 
 ---
 
+## Lab_03: Unit Testing and Sorting Algorithms
+
+**Description**:  
+This lab focuses on implementing and testing various classic sorting algorithms using the **Strategy design pattern**.  
+The sorting strategies are encapsulated as separate classes, allowing them to be easily swapped during runtime.  
+Each algorithm is tested against three data sets: pessimistic (reversed), optimistic (already sorted), and expected (random).
+
+---
+
+### 📂 Package: `sorting`
+
+#### 🔄 `SortingStrategy` (interface) 
+Defines a common interface for all sorting algorithms:
+```java
+void sort(int[] arr);
+```
+📥 `BubbleSort`, `InsertionSort`, `SelectionSort`, `QuickSort`, `MergeSort`
+
+Each class implements `SortingStrategy` and provides its own algorithm.
+
+- `BubbleSort`: Basic, inefficient, optimized with early exit
+- `InsertionSort`: Shifts elements into position
+- `SelectionSort`: Finds the smallest element each pass
+- `QuickSort`: Divide-and-conquer using partitioning
+- `MergeSort`: Recursive, stable merge-based sorting
+
+⚙️ `SortingContext`
+
+A context class for executing sorting strategies.
+Measures execution time and allows dynamic switching of the algorithm via setStrategy().
+
+```java
+SortingContext context = new SortingContext(new BubbleSort());
+context.executeStrategy(array);
+```
+
+Throws `EmptyArrayException` if the array is empty.
+
+🧪 `SortingTest`
+
+Test suite that runs all sorting strategies on:
+
+- Pessimistic data (reverse sorted)
+- Optimistic data (already sorted)
+- Expected data (random)
+
+Prints sorting time (in milliseconds) for each case.
+
+---
+
+### ✅ Key Concepts Used
+
+- Strategy Pattern
+- Performance testing via `System.nanoTime()`
+- Copying arrays for fair comparisons
+- Custom exceptions for validation
+
+### 📁 Sorting Package Structure
+
+```
+📂sorting/
+ ┣ 📜BubbleSort.java
+ ┣ 📜InsertionSort.java
+ ┣ 📜SelectionSort.java
+ ┣ 📜QuickSort.java
+ ┣ 📜MergeSort.java
+ ┣ 📜SortingStrategy.java
+ ┣ 📜SortingContext.java
+ ┗ 📜SortingTest.java
+```
+
+---
+
+### 📂 Package: `median`
+
+This module implements an efficient solution for finding the **median of two sorted arrays**.  
+It includes input validation, custom exception handling, and a test class demonstrating different scenarios.
+
+#### 📊 `MedianCalculator`
+
+Calculates the median of two sorted arrays using **binary search partitioning** (optimized O(log(min(n, m))) time complexity).
+
+**Key method**:
+- `double findMedian(int[] num1, int[] num2)`  
+  - Validates that both arrays are sorted  
+  - Uses partitioning to find the median in logarithmic time  
+  - Throws `ArrayNotSortedException` if input arrays are unsorted
+
+**Helper method**:
+- `isSorted(int[])` – checks whether an array is sorted in ascending order
+
+> Implements the **"Median of Two Sorted Arrays"** algorithm used in competitive programming and interviews.
+
+---
+
+#### 🧪 `MedianTest`
+
+- Demonstrates the usage of `MedianCalculator` with example arrays  
+- Prints results of the median operation  
+- Handles and displays exceptions for unsorted input
+
+Example output:
+
+```bash
+[1, 3, 6, 7] + [3, 4, 5] -> 4.0
+[1, 2, 6] + [3, 4, 5, 9] -> 4.0
+```
+
+---
+
+### 📁 Median Package Structure
+
+```
+📂median/
+ ┣ 📜MedianCalculator.java
+ ┣ 📜MedianTest.java
+```
+
+---
+
+### 📂 Package: `matrix`
+
+This module implements a transformation of a 2D matrix into a **spiral-ordered list**.  
+It also includes input validation and test cases to showcase the spiral output for different matrix sizes.
+
+#### 🌀 `SpiralMatrix`
+
+Contains logic to traverse a matrix in **spiral order**, starting from the top-left corner and moving inward.
+
+**Key method**:
+- `List<Integer> makeSpiral(int[][] matrix)`  
+  - Returns the matrix values in a spiral traversal order  
+  - Throws `InvalidMatrixException` if the input is empty or malformed  
+  - Supports rectangular and square matrices
+
+> Traversal order is: left column → bottom row → right column (in reverse) → top row (in reverse), repeated.
+
+---
+
+#### 🧪 `MatrixTest`
+
+Demonstrates spiral conversion of two example matrices:
+
+- A tall 6×3 matrix  
+- A square 4×4 matrix
+
+Prints the original matrix and resulting spiral list.  
+Catches and displays exceptions for invalid input.
+
+---
+
+### 📁 Matrix Package Structure
+
+```
+📂matrix/
+ ┣ 📜SpiralMatrix.java
+ ┣ 📜MatrixTest.java
+```
