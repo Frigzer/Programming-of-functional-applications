@@ -85,9 +85,7 @@ This initial lab focuses on familiarizing with Java basics. The task involves cr
  ┃ ┣ 📜Square.java
  ┃ ┗ 📜Triangle.java
  ┣ 📜.gitignore
- ┣ 📜Lab_01.iml
-
-   
+ ┣ 📜Lab_01.iml  
 ```
 
 ---
@@ -566,3 +564,284 @@ Used in: `conversion.ZigzagConversion`
  ┣ 📜InvalidMatrixException.java
  ┣ 📜InvalidNumOfRowsException.java
 ```
+
+---
+
+## Lab_04: Modular Project Structure & Unit Testing (JUnit)
+
+**Description**:  
+In this lab, previous implementations from Lab_03 were refactored into a **Maven-based project** using a standard directory layout.  
+Test classes were extracted and reorganized into corresponding test suites under `src/test/java`.  
+This project follows proper packaging, dependency management (`pom.xml`), and separation of concerns between application logic and testing.
+
+**Key improvements over Lab_03**:
+- 📦 Maven project structure: `src/main/java` and `src/test/java`
+- 🧪 Centralized test suites for each functional module
+- 🔧 Use of `pom.xml` for project configuration
+- ✅ Clear separation between test code and application code
+- 💡 Improved maintainability and scalability of the codebase
+
+---
+
+### 🗂️ Project Directory Structure
+
+```
+📦Lab_04/
+ ┣ 📜pom.xml
+ ┣ 📂src/
+ ┃ ┣ 📂main/ 
+ ┃ ┃ ┗ 📂java/org/example/ 
+ ┃ ┃ ┣ 📜Main.java 
+ ┃ ┃ ┣ 📂conversion/ → ZigzagConversion.java 
+ ┃ ┃ ┣ 📂exceptions/ → Custom exception classes 
+ ┃ ┃ ┣ 📂matrix/ → SpiralMatrix.java 
+ ┃ ┃ ┣ 📂median/ → MedianCalculator.java 
+ ┃ ┃ ┣ 📂sorting/ → All sorting algorithms + context 
+ ┃ ┃ ┗ 📂trio/ → TrioFinder.java 
+ ┃ ┗ 📂test/ ┃ ┗ 📂java/org/example/ 
+ ┃ ┣ 📂conversion/ → ConversionTestSuite.java 
+ ┃ ┣ 📂exceptions/ → Tests for exceptions 
+ ┃ ┣ 📂matrix/ → MatrixTestSuite.java 
+ ┃ ┣ 📂median/ → MedianTestSuite.java 
+ ┃ ┣ 📂sorting/ → SortingTestSuite.java 
+ ┃ ┗ 📂trio/ → TrioTestSuite.java
+ ```
+
+### 📸 Screenshots
+
+![Test results](assets/lab_04_demo1.png)
+
+![Code coverage](assets/lab_04_demo2.png)
+
+---
+
+### 📂 Test Package: `org.example.sorting`
+
+This test suite validates the correctness, performance, and exception handling of all sorting algorithms implemented in the application.  
+It uses **JUnit 5** and follows a structured `@Test`-based approach within the `SortingTestSuite` class.
+
+#### ✅ `SortingTestSuite`
+
+Covers:
+
+- ✔️ **Correctness** – Each algorithm (Bubble, Insertion, Merge, Quick, Selection) is tested against a known shuffled array and compared to the expected sorted result
+- ⚡ **Performance** – Uses `SortingContext` to measure execution time (in ms) on random arrays of 10,000 integers, with assertions ensuring they meet expected performance thresholds
+- 🚨 **Exception handling** – Confirms that `EmptyArrayException` is properly thrown on empty input
+
+**Key tests**:
+- `testBubbleSort()` through `testSelectionSort()` – correctness tests for each algorithm
+- `test<Algo>ExecutionTime()` – ensures sorting completes within a specific time window
+- `testSortingExceptionHandling()` – verifies exception is thrown for empty array input
+
+> Example assertion:
+```java
+assertEquals(Arrays.toString(expected), Arrays.toString(result));
+```
+
+> Example performance check:
+```java
+assertTrue(context.executeStrategy(arr) < 40);
+```
+
+---
+
+### 🧪 Technologies used
+- JUnit 5
+- Randomized input for expected-case testing
+- Assertions for both output comparison and runtime bounds
+
+---
+
+### 📁 Sorting Test Structure
+
+```
+📂org.example.sorting/
+ ┗ 📜SortingTestSuite.java
+```
+
+---
+
+### 📂 Test Package: `org.example.trio`
+
+This suite tests the `TrioFinder` class, which finds all unique triplets in an array that sum up to zero.
+
+#### 🔍 `TrioTestSuite`
+
+Covers the following:
+
+- ✅ **Correctness** – verifies that the algorithm returns the correct triplet combinations in various input arrays
+- 🚨 **Exception handling** – ensures that an `EmptyArrayException` is thrown when input is empty
+
+**Key tests**:
+
+- `testTrioFinder1()` – finds multiple valid triplets including negative and duplicate numbers
+- `testTrioFinder2()` – includes zero and duplicates
+- `testTrioFinder3()` – checks for an edge case: `[0, 0, 0]`
+- `testTrioExceptionHandling()` – checks proper exception on empty input
+
+> Example assertion:
+```java
+assertEquals(List.of(List.of(-1, 0, 1), List.of(0, 0, 0)), trio.findTriplet(nums2));
+```
+
+### 📁 Trio Test Structure
+
+```
+📂org.example.trio/
+ ┗ 📜TrioTestSuite.java
+```
+
+--- 
+
+### 📂 Test Package: `org.example.median`
+
+This suite tests the `MedianCalculator` class, which implements an efficient algorithm to find the **median of two sorted arrays**.
+
+#### 📊 `MedianTestSuite`
+
+Covers:
+
+- ✅ **Correctness** – tests median calculation across various array lengths (even/odd combined sizes)
+- ⚖️ **Balanced vs unbalanced datasets** – includes cases with uneven array sizes
+- 🚨 **Exception handling** – ensures `ArrayNotSortedException` is thrown when either input array is not sorted
+
+**Key tests**:
+
+- `testFindMedian1()` to `testFindMedian6()` – verify correct medians for various input arrays
+- `testMedianExceptionHandling()` – ensures the calculator throws an exception when unsorted input is provided
+
+> Example assertion:
+```java
+assertEquals(4.0, medianFinder.findMedian(num1, num2));
+```
+
+> Example exception test:
+
+```java
+assertThrows(ArrayNotSortedException.class, () -> medianFinder.findMedian(num1, num2));
+```
+
+---
+
+### 📁 Median Test Structure
+
+```
+📂org.example.median/
+ ┗ 📜MedianTestSuite.java
+```
+
+---
+
+### 📂 Test Package: `org.example.matrix`
+
+This suite tests the `SpiralMatrix` class, which transforms a 2D matrix into a list of values in **spiral order**.
+
+#### 🌀 `MatrixTestSuite`
+
+Covers:
+
+- ✅ **Correctness** – tests correct spiral output for rectangular (6x3) and square (4x4) matrices
+- 🚨 **Exception handling** – ensures that `InvalidMatrixException` is thrown when the input matrix is empty or malformed
+
+**Key tests**:
+
+- `makeSpiralTest1()` – tests spiral traversal of a tall matrix  
+- `makeSpiralTest2()` – tests spiral traversal of a 4×4 matrix  
+- `testMatrixExceptionHandling()` – tests handling of an invalid (empty) matrix
+
+> Example assertion:
+```java
+assertEquals(List.of(1, 4, 7, ...), spiralMatrix.makeSpiral(matrix1));
+```
+
+---
+
+### 📁 Matrix Test Structure
+
+```
+📂org.example.matrix/
+ ┗ 📜MatrixTestSuite.java
+```
+
+---
+
+### 📂 Test Package: `org.example.conversion`
+
+This suite tests the `ZigzagConversion` class, which converts a string into a **zigzag pattern** across a given number of rows, then reads it row by row.
+
+#### 🔁 `ConversionTestSuite`
+
+Covers:
+
+- ✅ **Correctness** – verifies the zigzag conversion for typical string + row combinations
+- 🚨 **Exception handling** – ensures that an `InvalidNumOfRowsException` is thrown when the number of rows is:
+  - Zero
+  - One
+  - Equal to or greater than the string length
+
+**Key tests**:
+
+- `convertTest1()` – "PAYPALISHIRING", 3 rows → `PAHNAPLSIIGYIR`
+- `convertTest2()` – "PAYPALISHIRING", 4 rows → `PINALSIGYAHRPI`
+- `testConversionExceptionHandling1()` to `4()` – invalid `numRows` cases
+
+> Example assertion:
+```java
+assertEquals("PAHNAPLSIIGYIR", converter.convert("PAYPALISHIRING", 3));
+```
+
+> Example exception test:
+```java
+assertThrows(InvalidNumOfRowsException.class, () -> converter.convert("ABGR", 6));
+```
+
+---
+
+### 📁 Conversion Test Structure
+
+```java
+📂org.example.conversion/
+ ┗ 📜ConversionTestSuite.java
+```
+
+---
+
+### 📂 Package: `org.example.exceptions`
+
+This package defines **custom exceptions** used throughout the application modules to provide clear and meaningful error reporting.
+
+All classes extend the base Java `Exception` class and accept a message upon construction.
+
+#### ❌ Custom Exceptions:
+
+- **`ArrayNotSortedException`**  
+  Thrown when median calculation receives unsorted arrays.  
+  Used in: `MedianCalculator`, `MedianTestSuite`
+
+- **`EmptyArrayException`**  
+  Thrown when an algorithm receives an empty array.  
+  Used in: `SortingContext`, `TrioFinder`
+
+- **`InvalidMatrixException`**  
+  Thrown when a matrix is null, empty, or invalid for spiral traversal.  
+  Used in: `SpiralMatrix`
+
+- **`InvalidNumOfRowsException`**  
+  Thrown when an invalid row count is used in ZigZag conversion.  
+  Used in: `ZigzagConversion`
+
+> Each of these exceptions is tested indirectly in their respective module test suites by checking exception handling behavior.
+
+---
+
+### 📁 Exceptions Package Structure
+
+```
+📂org.example.exceptions/ 
+ ┣ 📜ArrayNotSortedException.java 
+ ┣ 📜EmptyArrayException.java 
+ ┣ 📜InvalidMatrixException.java 
+ ┗ 📜InvalidNumOfRowsException.java
+```
+
+---
