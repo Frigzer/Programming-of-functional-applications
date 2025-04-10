@@ -926,3 +926,23 @@ Unlike previous labs, this app does **not** allow adding new vehicles or showroo
 #### IntelliJ IDEA
 1. Open the project
 2. Run `org.example.lab_06.CarShowroomApp`
+
+> ✅ Requires JavaFX (included via Maven)\
+> 📦 Uses FXML for layout and CSS for styling
+
+---
+
+### 📁 Simplified Project Structure
+
+```
+📦Lab_06/
+ ┣ 📂core/         → Data layer (Vehicle, Showroom, Condition enum)
+ ┣ 📂gui/          → JavaFX controllers and main app class
+ ┣ 📂resources/
+ ┃ ┣ 📜CarShowroom-view.fxml
+ ┃ ┣ 📜style.css
+ ┃ ┣ 📜title.jpg
+ ┃ ┗ 📂carImages/  → Car images shown in the app
+ ┣ 📜pom.xml       → Maven config (includes JavaFX plugin)
+ ┗ 📜module-info.java
+```
