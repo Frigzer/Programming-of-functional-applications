@@ -845,3 +845,49 @@ All classes extend the base Java `Exception` class and accept a message upon con
 ```
 
 ---
+
+## Lab_05: Car Showroom – Swing GUI Application
+
+**Description**:  
+This lab introduces a **desktop-based showroom manager** written in Java using **Swing**.  
+It allows an administrator to create showrooms and add vehicles to them via a graphical interface.  
+The app builds upon earlier console-based logic but moves it into an interactive, windowed environment.
+
+---
+
+### 🖼️ Screenshot
+
+![Car Showroom GUI](assets/lab_05_demo.png)
+
+---
+
+### 🧩 Features
+
+- ➕ Add and remove vehicles from a showroom  
+- 🏢 Create and delete car showrooms  
+- 🔍 Filter vehicles by brand or condition  
+- ↕️ Sort vehicles by name or available quantity  
+- 🧾 Summary display of current vehicles  
+- 🗂️ Vehicle data stored in memory (initialized in code – no database)
+
+---
+
+### 🚀 How to Run
+
+#### Using IntelliJ
+1. Open the project in IntelliJ
+2. Locate `org.example.Main`
+3. Run it directly – GUI will launch
+
+---
+
+### 📁 Simplified Project Structure
+
+```
+📦Lab_05/
+ ┣ 📂core/         → Logic layer (Vehicle, Showroom, Condition enum)
+ ┣ 📂gui/          → GUI components (main window, panels)
+ ┣ 📂models/       → TableModel for GUI table
+ ┣ 📜Main.java     → Launches the application
+ ┣ 📜pom.xml       → Maven configuration
+```
