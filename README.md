@@ -891,3 +891,38 @@ The app builds upon earlier console-based logic but moves it into an interactive
  ┣ 📜Main.java     → Launches the application
  ┣ 📜pom.xml       → Maven configuration
 ```
+---
+
+## Lab_06: Car Showroom – JavaFX Client Application
+
+**Description**:  
+This lab transforms the showroom manager into a **user-facing GUI application** using **JavaFX**.  
+It acts as a *client interface*, allowing users to browse available vehicles, view images, and simulate purchases.  
+Unlike previous labs, this app does **not** allow adding new vehicles or showrooms – it works on pre-defined data.
+
+---
+
+### 🖼️ Screenshot
+
+![Client GUI](assets/lab_06_demo.png)
+
+---
+
+### 🧩 Features
+
+- 🏎️ Browse available showrooms and vehicles
+- 🖼️ View image previews of selected vehicles
+- 🛒 Purchase a vehicle (removes it from inventory)
+- 🎛️ Filter or sort vehicles by brand, condition, etc.
+- 🎨 Styled using CSS + JavaFX components
+- 💾 Vehicle and showroom data are predefined in code
+
+> This app simulates a client-side showroom browser, separated from administrative logic.
+
+---
+
+### 🚀 How to Run
+
+#### IntelliJ IDEA
+1. Open the project
+2. Run `org.example.lab_06.CarShowroomApp`
