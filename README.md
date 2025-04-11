@@ -946,3 +946,68 @@ Unlike previous labs, this app does **not** allow adding new vehicles or showroo
  ┣ 📜pom.xml       → Maven config (includes JavaFX plugin)
  ┗ 📜module-info.java
 ```
+
+---
+
+## Lab_07: Car Showroom – Shopping Cart, CSV & Persistence
+
+**Description**:  
+In this lab, the JavaFX showroom application was extended with **realistic data loading and shopping behavior**.  
+The user can now browse showroom vehicles, add them to a shopping cart, and finalize a purchase.  
+Vehicle and cart data are stored in files to maintain state between application runs.
+
+---
+
+### 🧩 New Features
+
+- 📥 **Load vehicles from CSV** (`cars.csv`) instead of hardcoded entries
+- 🛒 **Shopping cart panel** (with total value calculation and item removal)
+- 💾 **State persistence** via `.ser` files (e.g., `shoppingCart.ser`)
+- ✅ **Confirmation dialogs** on checkout and application exit
+- 🔄 Ensures no car is lost between list and cart – consistent transaction logic
+- 🖼️ Expanded image support for vehicles
+- 🎨 Improved UI with custom CSS styling
+
+---
+
+### 🖼️ Demo
+
+![Lab 07 Demo](assets/lab_07_demo.gif)
+
+> Clicking “Checkout” confirms purchase  
+> Closing the app triggers a prompt to save cart state
+
+---
+
+### 📁 Data Files
+
+- `cars.csv` – vehicle inventory (loaded at startup)
+- `shoppingCart.ser` – serialized cart state (saved on exit if confirmed)
+- `carBackup.csv` – optional fallback/backup version of inventory
+
+---
+
+### 🚀 How to Run
+
+#### IntelliJ
+1. Open project
+2. Run `CarShowroomApp` from `org.example.lab_07`
+
+> 🛠 Requires JavaFX (via Maven plugin)\
+> 🎵 Includes custom audio and visuals (e.g., music.mp3, crazy.gif, etc.)
+
+---
+
+### 📂 Simplified Project Structure
+```
+📦Lab_07/
+ ┣ 📂core/          → Vehicle, Showroom, ShoppingCart
+ ┣ 📂resources/
+ ┃ ┣ 📂carImages/  → Car photos
+ ┃ ┣ 📜cars.csv    → Inventory source
+ ┃ ┣ 📜style.css   → UI styling
+ ┃ ┣ 📜*.fxml      → Layouts for showroom & cart
+ ┣ 📜shoppingCart.ser → Saved cart state
+ ┣ 📜CarShowroomApp.java → Main entry point
+ ┣ 📜pom.xml       → JavaFX + Maven config
+```
