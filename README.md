@@ -154,7 +154,7 @@ The lab introduces the use of collections, comparators, enums, and more advanced
 
 ---
 
-#### 🏷️ `ItemCondition` (enum)
+#### `ItemCondition` (enum)
 
 Defines possible conditions for a vehicle.
 
@@ -167,7 +167,7 @@ Defines possible conditions for a vehicle.
 
 ---
 
-#### 🚗 `Vehicle`
+#### `Vehicle`
 
 Represents a single car model stored in a showroom.  
 This class implements the `Comparable` interface and can be sorted by brand name.
@@ -190,7 +190,7 @@ This class implements the `Comparable` interface and can be sorted by brand name
 
 ---
 
-#### 🏢 `CarShowroom`
+#### `CarShowroom`
 
 Represents a single car showroom that holds a collection of vehicles.  
 Provides methods for managing, searching, and sorting vehicles. Handles capacity limits and vehicle quantities.
@@ -247,7 +247,7 @@ Provides methods for managing, searching, and sorting vehicles. Handles capacity
 
 ---
 
-#### 🗃️ `CarShowroomContainer`
+#### `CarShowroomContainer`
 
 Acts as a manager for multiple car showrooms.  
 Internally uses a `HashMap` to map showroom names to `CarShowroom` objects.
@@ -285,12 +285,12 @@ Each algorithm is tested against three data sets: pessimistic (reversed), optimi
 
 ### 📂 Package: `sorting`
 
-#### 🔄 `SortingStrategy` (interface) 
+#### `SortingStrategy` (interface) 
 Defines a common interface for all sorting algorithms:
 ```java
 void sort(int[] arr);
 ```
-📥 `BubbleSort`, `InsertionSort`, `SelectionSort`, `QuickSort`, `MergeSort`
+`BubbleSort`, `InsertionSort`, `SelectionSort`, `QuickSort`, `MergeSort`
 
 Each class implements `SortingStrategy` and provides its own algorithm.
 
@@ -300,7 +300,7 @@ Each class implements `SortingStrategy` and provides its own algorithm.
 - `QuickSort`: Divide-and-conquer using partitioning
 - `MergeSort`: Recursive, stable merge-based sorting
 
-⚙️ `SortingContext`
+`SortingContext`
 
 A context class for executing sorting strategies.
 Measures execution time and allows dynamic switching of the algorithm via setStrategy().
@@ -312,7 +312,7 @@ context.executeStrategy(array);
 
 Throws `EmptyArrayException` if the array is empty.
 
-🧪 `SortingTest`
+`SortingTest`
 
 Test suite that runs all sorting strategies on:
 
@@ -324,7 +324,7 @@ Prints sorting time (in milliseconds) for each case.
 
 ---
 
-### ✅ Key Concepts Used
+### Key Concepts Used
 
 - Strategy Pattern
 - Performance testing via `System.nanoTime()`
@@ -352,7 +352,7 @@ Prints sorting time (in milliseconds) for each case.
 This module implements an efficient solution for finding the **median of two sorted arrays**.  
 It includes input validation, custom exception handling, and a test class demonstrating different scenarios.
 
-#### 📊 `MedianCalculator`
+#### `MedianCalculator`
 
 Calculates the median of two sorted arrays using **binary search partitioning** (optimized O(log(min(n, m))) time complexity).
 
@@ -369,7 +369,7 @@ Calculates the median of two sorted arrays using **binary search partitioning** 
 
 ---
 
-#### 🧪 `MedianTest`
+#### `MedianTest`
 
 - Demonstrates the usage of `MedianCalculator` with example arrays  
 - Prints results of the median operation  
@@ -399,7 +399,7 @@ Example output:
 This module implements a transformation of a 2D matrix into a **spiral-ordered list**.  
 It also includes input validation and test cases to showcase the spiral output for different matrix sizes.
 
-#### 🌀 `SpiralMatrix`
+#### `SpiralMatrix`
 
 Contains logic to traverse a matrix in **spiral order**, starting from the top-left corner and moving inward.
 
@@ -413,7 +413,7 @@ Contains logic to traverse a matrix in **spiral order**, starting from the top-l
 
 ---
 
-#### 🧪 `MatrixTest`
+#### `MatrixTest`
 
 Demonstrates spiral conversion of two example matrices:
 
@@ -462,7 +462,7 @@ A P L S I I G
 Y I R
 ```
 
-#### 🧪 `ConversionTest`
+#### `ConversionTest`
 
 - Demonstrates ZigZag conversion on two test cases  
 - Catches and displays error messages for invalid row numbers  
@@ -490,7 +490,7 @@ PAYPALISHIRING po konwersji dla 4 rzędów: PINALSIGYAHRPI
 This module solves the **3Sum problem** – finding all unique triplets in an array that sum up to zero.  
 The algorithm is optimized to skip duplicates and avoid redundant combinations.
 
-#### 🔍 `TrioFinder`
+#### `TrioFinder`
 
 Finds all unique triplets `(a, b, c)` in an array such that `a + b + c = 0`.
 
@@ -507,7 +507,7 @@ Space – O(n) for result storage
 
 ---
 
-#### 🧪 `TrioTest`
+#### `TrioTest`
 
 - Runs `TrioFinder` on different integer arrays  
 - Outputs all triplets found  
@@ -575,11 +575,11 @@ Test classes were extracted and reorganized into corresponding test suites under
 This project follows proper packaging, dependency management (`pom.xml`), and separation of concerns between application logic and testing.
 
 **Key improvements over Lab_03**:
-- 📦 Maven project structure: `src/main/java` and `src/test/java`
-- 🧪 Centralized test suites for each functional module
-- 🔧 Use of `pom.xml` for project configuration
-- ✅ Clear separation between test code and application code
-- 💡 Improved maintainability and scalability of the codebase
+- Maven project structure: `src/main/java` and `src/test/java`
+- Centralized test suites for each functional module
+- Use of `pom.xml` for project configuration
+- Clear separation between test code and application code
+- Improved maintainability and scalability of the codebase
 
 ---
 
@@ -620,13 +620,13 @@ This project follows proper packaging, dependency management (`pom.xml`), and se
 This test suite validates the correctness, performance, and exception handling of all sorting algorithms implemented in the application.  
 It uses **JUnit 5** and follows a structured `@Test`-based approach within the `SortingTestSuite` class.
 
-#### ✅ `SortingTestSuite`
+#### `SortingTestSuite`
 
 Covers:
 
-- ✔️ **Correctness** – Each algorithm (Bubble, Insertion, Merge, Quick, Selection) is tested against a known shuffled array and compared to the expected sorted result
-- ⚡ **Performance** – Uses `SortingContext` to measure execution time (in ms) on random arrays of 10,000 integers, with assertions ensuring they meet expected performance thresholds
-- 🚨 **Exception handling** – Confirms that `EmptyArrayException` is properly thrown on empty input
+- **Correctness** – Each algorithm (Bubble, Insertion, Merge, Quick, Selection) is tested against a known shuffled array and compared to the expected sorted result
+- **Performance** – Uses `SortingContext` to measure execution time (in ms) on random arrays of 10,000 integers, with assertions ensuring they meet expected performance thresholds
+- **Exception handling** – Confirms that `EmptyArrayException` is properly thrown on empty input
 
 **Key tests**:
 - `testBubbleSort()` through `testSelectionSort()` – correctness tests for each algorithm
@@ -645,7 +645,7 @@ assertTrue(context.executeStrategy(arr) < 40);
 
 ---
 
-### 🧪 Technologies used
+### Technologies used
 - JUnit 5
 - Randomized input for expected-case testing
 - Assertions for both output comparison and runtime bounds
@@ -665,12 +665,12 @@ assertTrue(context.executeStrategy(arr) < 40);
 
 This suite tests the `TrioFinder` class, which finds all unique triplets in an array that sum up to zero.
 
-#### 🔍 `TrioTestSuite`
+#### `TrioTestSuite`
 
 Covers the following:
 
-- ✅ **Correctness** – verifies that the algorithm returns the correct triplet combinations in various input arrays
-- 🚨 **Exception handling** – ensures that an `EmptyArrayException` is thrown when input is empty
+- **Correctness** – verifies that the algorithm returns the correct triplet combinations in various input arrays
+- **Exception handling** – ensures that an `EmptyArrayException` is thrown when input is empty
 
 **Key tests**:
 
@@ -701,9 +701,9 @@ This suite tests the `MedianCalculator` class, which implements an efficient alg
 
 Covers:
 
-- ✅ **Correctness** – tests median calculation across various array lengths (even/odd combined sizes)
-- ⚖️ **Balanced vs unbalanced datasets** – includes cases with uneven array sizes
-- 🚨 **Exception handling** – ensures `ArrayNotSortedException` is thrown when either input array is not sorted
+- **Correctness** – tests median calculation across various array lengths (even/odd combined sizes)
+- **Balanced vs unbalanced datasets** – includes cases with uneven array sizes
+- **Exception handling** – ensures `ArrayNotSortedException` is thrown when either input array is not sorted
 
 **Key tests**:
 
@@ -740,8 +740,8 @@ This suite tests the `SpiralMatrix` class, which transforms a 2D matrix into a l
 
 Covers:
 
-- ✅ **Correctness** – tests correct spiral output for rectangular (6x3) and square (4x4) matrices
-- 🚨 **Exception handling** – ensures that `InvalidMatrixException` is thrown when the input matrix is empty or malformed
+- **Correctness** – tests correct spiral output for rectangular (6x3) and square (4x4) matrices
+- **Exception handling** – ensures that `InvalidMatrixException` is thrown when the input matrix is empty or malformed
 
 **Key tests**:
 
@@ -769,12 +769,12 @@ assertEquals(List.of(1, 4, 7, ...), spiralMatrix.makeSpiral(matrix1));
 
 This suite tests the `ZigzagConversion` class, which converts a string into a **zigzag pattern** across a given number of rows, then reads it row by row.
 
-#### 🔁 `ConversionTestSuite`
+#### `ConversionTestSuite`
 
 Covers:
 
-- ✅ **Correctness** – verifies the zigzag conversion for typical string + row combinations
-- 🚨 **Exception handling** – ensures that an `InvalidNumOfRowsException` is thrown when the number of rows is:
+- **Correctness** – verifies the zigzag conversion for typical string + row combinations
+- **Exception handling** – ensures that an `InvalidNumOfRowsException` is thrown when the number of rows is:
   - Zero
   - One
   - Equal to or greater than the string length
@@ -861,18 +861,18 @@ The app builds upon earlier console-based logic but moves it into an interactive
 
 ---
 
-### 🧩 Features
+### 💡 Features
 
-- ➕ Add and remove vehicles from a showroom  
-- 🏢 Create and delete car showrooms  
-- 🔍 Filter vehicles by brand or condition  
-- ↕️ Sort vehicles by name or available quantity  
-- 🧾 Summary display of current vehicles  
-- 🗂️ Vehicle data stored in memory (initialized in code – no database)
+- Add and remove vehicles from a showroom  
+- Create and delete car showrooms  
+- Filter vehicles by brand or condition  
+- Sort vehicles by name or available quantity  
+- Summary display of current vehicles  
+- Vehicle data stored in memory (initialized in code – no database)
 
 ---
 
-### 🚀 How to Run
+### How to Run
 
 #### Using IntelliJ
 1. Open the project in IntelliJ
@@ -908,27 +908,27 @@ Unlike previous labs, this app does **not** allow adding new vehicles or showroo
 
 ---
 
-### 🧩 Features
+### 💡 Features
 
-- 🏎️ Browse available showrooms and vehicles
-- 🖼️ View image previews of selected vehicles
-- 🛒 Purchase a vehicle (removes it from inventory)
-- 🎛️ Filter or sort vehicles by brand, condition, etc.
-- 🎨 Styled using CSS + JavaFX components
-- 💾 Vehicle and showroom data are predefined in code
+- Browse available showrooms and vehicles
+- View image previews of selected vehicles
+- Purchase a vehicle (removes it from inventory)
+- Filter or sort vehicles by brand, condition, etc.
+- Styled using CSS + JavaFX components
+- Vehicle and showroom data are predefined in code
 
 > This app simulates a client-side showroom browser, separated from administrative logic.
 
 ---
 
-### 🚀 How to Run
+### How to Run
 
 #### IntelliJ IDEA
 1. Open the project
 2. Run `org.example.lab_06.CarShowroomApp`
 
-> ✅ Requires JavaFX (included via Maven)\
-> 📦 Uses FXML for layout and CSS for styling
+> Requires JavaFX (included via Maven)\
+> Uses FXML for layout and CSS for styling
 
 ---
 
@@ -958,15 +958,15 @@ Vehicle and cart data are stored in files to maintain state between application 
 
 ---
 
-### 🧩 New Features
+### 💡 New Features
 
-- 📥 **Load vehicles from CSV** (`cars.csv`) instead of hardcoded entries
-- 🛒 **Shopping cart panel** (with total value calculation and item removal)
-- 💾 **State persistence** via `.ser` files (e.g., `shoppingCart.ser`)
-- ✅ **Confirmation dialogs** on checkout and application exit
-- 🔄 Ensures no car is lost between list and cart – consistent transaction logic
-- 🖼️ Expanded image support for vehicles
-- 🎨 Improved UI with custom CSS styling
+- **Load vehicles from CSV** (`cars.csv`) instead of hardcoded entries
+- **Shopping cart panel** (with total value calculation and item removal)
+- **State persistence** via `.ser` files (e.g., `shoppingCart.ser`)
+- **Confirmation dialogs** on checkout and application exit
+- Ensures no car is lost between list and cart – consistent transaction logic
+- Expanded image support for vehicles
+- Improved UI with custom CSS styling
 
 ---
 
@@ -987,14 +987,14 @@ Vehicle and cart data are stored in files to maintain state between application 
 
 ---
 
-### 🚀 How to Run
+### How to Run
 
 #### IntelliJ
 1. Open project
 2. Run `CarShowroomApp` from `org.example.lab_07`
 
-> 🛠 Requires JavaFX (via Maven plugin)\
-> 🎵 Includes custom audio and visuals (e.g., music.mp3, crazy.gif, etc.)
+> Requires JavaFX (via Maven plugin)\
+> Includes custom audio and visuals (e.g., music.mp3, crazy.gif, etc.)
 
 ---
 
